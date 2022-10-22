@@ -10,7 +10,9 @@ function defineConfig (mode, entryName) {
     entry: {
       [entryName]: path.join(__dirname, './src/index.js')
     },
-    node: false,
+    node: {
+      global: true
+    },
     output: {
       filename: '[name].js',
       path: path.join(__dirname, './dist'),
@@ -26,7 +28,11 @@ function defineConfig (mode, entryName) {
         buffer: require.resolve('buffer/'),
         util: require.resolve('util/'),
         path: require.resolve('path-browserify'),
-        stream: require.resolve('stream-browserify')
+        stream: require.resolve('stream-browserify'),
+        events: require.resolve('events/'),
+        punycode: require.resolve('punycode/'),
+        querystring: require.resolve('querystring/'),
+        string_decoder: require.resolve('string_decoder/')
       }
     },
     plugins: [
