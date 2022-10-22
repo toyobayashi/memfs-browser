@@ -10,5 +10,5 @@ exports.versions = {
   build: __MEMFS_BROWSER_VERSION__
 };
 
-module.exports = { ...exports, ...memfs.fs };
+module.exports = Object.assign({}, exports, memfs.fs);
 module.exports.semantic = memfs.semantic;

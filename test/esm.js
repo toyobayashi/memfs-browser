@@ -1,8 +1,16 @@
-import * as memfs from '../dist/memfs.esm.js'
+import { fs, vol } from 'memfs-browser';
 
-console.log(memfs)
+const { readFileSync, writeFileSync } = fs
 
-const { vol } = memfs
+writeFileSync('/hello.txt', 'World!');
+console.log(readFileSync('/hello.txt', 'utf8')); // World!
 
-vol.fromJSON({}, '/')
-console.log(vol.lstatSync('/'))
+const json = {
+  './README.md': '1',
+  './src/index.js': '2',
+  './node_modules/debug/index.js': '3',
+};
+vol.fromJSON(json, '/app');
+
+console.log(readFileSync('/app/README.md', 'utf8')); // 1
+console.log(vol.readFileSync('/app/src/index.js', 'utf8')); // 2

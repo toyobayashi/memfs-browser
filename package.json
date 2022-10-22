@@ -1,6 +1,6 @@
 {
   "name": "memfs-browser",
-  "version": "3.4.10701",
+  "version": "3.4.10702",
   "description": "In-memory file-system with Node's fs API.",
   "main": "./dist/memfs.js",
   "types": "index.d.ts",
