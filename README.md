@@ -24,6 +24,7 @@ npm install memfs-browser
 
     console.log(memfs.versions.memfs) // original memfs version
     console.log(memfs.versions.build) // version of current build
+    console.log(memfs.path) // path-browserify
     ```
 
 - HTML `<script type="module">`
@@ -47,6 +48,7 @@ npm install memfs-browser
 
     console.log(memfs.versions.memfs) // original memfs version
     console.log(memfs.versions.build) // version of current build
+    console.log(memfs.path) // path-browserify
     ```
 
 - Webpack
@@ -57,4 +59,5 @@ npm install memfs-browser
 
     console.log(memfs.versions.memfs) // original memfs version
     console.log(memfs.versions.build) // version of current build
+    console.log(memfs.path) // path-browserify
     ```

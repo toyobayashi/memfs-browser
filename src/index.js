@@ -10,5 +10,7 @@ exports.versions = {
   build: __MEMFS_BROWSER_VERSION__
 };
 
+exports.path = require('path')
+
 module.exports = Object.assign({}, exports, memfs.fs);
 module.exports.semantic = memfs.semantic;

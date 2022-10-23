@@ -1,4 +1,5 @@
-import { fs, vol } from 'memfs-browser';
+import { fs, vol, path } from 'memfs-browser';
+console.log(path)
 
 const { readFileSync, writeFileSync } = fs
 
