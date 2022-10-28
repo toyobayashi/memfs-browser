@@ -4,7 +4,7 @@ const replace = require('@rollup/plugin-replace').default
 const nodeResolve = require('@rollup/plugin-node-resolve').default
 const commonjs = require('@rollup/plugin-commonjs').default
 const inject = require('@rollup/plugin-inject').default
-const alias = require('@rollup/plugin-alias').default
+const alias = require('@rollup/plugin-alias')
 const { terser } = require('rollup-plugin-terser')
 
 function defineConfig (mode, entryName) {
@@ -18,20 +18,23 @@ function defineConfig (mode, entryName) {
         '__MEMFS_BROWSER_VERSION__': JSON.stringify(require('./package.json').version),
         '__MEMFS_BROWSER_ORIGINAL_VERSION__': JSON.stringify(require('./package.json').dependencies.memfs)
       }),
-      nodeResolve(),
+      nodeResolve({
+        mainFields: ['browser', 'module', 'main'],
+        preferBuiltins: false
+      }),
       alias({
         entries: {
           process: require.resolve('process/browser'),
-          assert: require.resolve('assert/'),
-          url: require.resolve('url/'),
-          buffer: require.resolve('buffer/'),
-          util: require.resolve('util/'),
+          // assert: require.resolve('assert/'),
+          // url: require.resolve('url/'),
+          // buffer: require.resolve('buffer/'),
+          // util: require.resolve('util/'),
           path: require.resolve('path-browserify'),
           stream: require.resolve('stream-browserify'),
-          events: require.resolve('events/'),
-          punycode: require.resolve('punycode/'),
-          querystring: require.resolve('querystring/'),
-          string_decoder: require.resolve('string_decoder/'),
+          // events: require.resolve('events/'),
+          // punycode: require.resolve('punycode/'),
+          // querystring: require.resolve('querystring/'),
+          // string_decoder: require.resolve('string_decoder/'),
         }
       }),
       commonjs(),

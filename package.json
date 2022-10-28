@@ -1,6 +1,6 @@
 {
   "name": "memfs-browser",
-  "version": "3.4.10703",
+  "version": "3.4.10800",
   "description": "In-memory file-system with Node's fs API.",
   "main": "./dist/memfs.js",
   "types": "index.d.ts",
@@ -35,13 +35,13 @@
     "mock"
   ],
   "dependencies": {
-    "memfs": "3.4.7"
+    "memfs": "3.4.8"
   },
   "devDependencies": {
-    "@rollup/plugin-alias": "^4.0.0",
+    "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^23.0.2",
     "@rollup/plugin-inject": "^5.0.1",
-    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^14.1.0",
     "@rollup/plugin-replace": "^5.0.0",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",

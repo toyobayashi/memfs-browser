@@ -1,4 +1,5 @@
 export * from 'memfs';
+export { Buffer } from 'buffer/'
 
 export declare const versions: {
   memfs: string;
