@@ -4,8 +4,8 @@ const replace = require('@rollup/plugin-replace').default
 const nodeResolve = require('@rollup/plugin-node-resolve').default
 const commonjs = require('@rollup/plugin-commonjs').default
 const inject = require('@rollup/plugin-inject').default
-const alias = require('@rollup/plugin-alias')
-const { terser } = require('rollup-plugin-terser')
+const alias = require('@rollup/plugin-alias').default
+const terser = require('@rollup/plugin-terser').default
 
 function defineConfig (mode, entryName) {
   /** @type {import('rollup').RollupOptions} */
@@ -25,8 +25,8 @@ function defineConfig (mode, entryName) {
       alias({
         entries: {
           process: require.resolve('process/browser'),
-          // assert: require.resolve('assert/'),
-          // url: require.resolve('url/'),
+          assert: path.join(__dirname, './src/assert.js'),
+          url: path.join(__dirname, './src/url.js'),
           // buffer: require.resolve('buffer/'),
           // util: require.resolve('util/'),
           path: require.resolve('path-browserify'),
