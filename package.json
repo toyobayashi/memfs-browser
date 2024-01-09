@@ -1,6 +1,6 @@
 {
   "name": "memfs-browser",
-  "version": "4.6.0",
+  "version": "4.6.10001",
   "description": "In-memory file-system with Node's fs API.",
   "main": "./dist/memfs.js",
   "module": "./dist/memfs.esm.js",
@@ -36,7 +36,6 @@
     "mock"
   ],
   "dependencies": {
-    "buffer": "^6.0.3",
     "memfs": "4.6.0"
   },
   "devDependencies": {

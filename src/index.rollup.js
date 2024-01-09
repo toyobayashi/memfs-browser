@@ -12,7 +12,6 @@ export { fs }
 export const semantic = true
 
 import path from 'path'
-import { Buffer } from 'buffer'
 
 export const versions = {
   memfs: __MEMFS_BROWSER_ORIGINAL_VERSION__,
@@ -20,7 +19,6 @@ export const versions = {
 }
 
 export { path }
-export { Buffer }
 
 // re-export from fs
 
