@@ -1,6 +1,6 @@
 # memfs-browser
 
-`memfs` UMD bundle for browser.
+`memfs` UMD and ESM bundle for browser.
 
 The code shipped in this package is not transpiled by babel.
 
@@ -13,6 +13,7 @@ npm install memfs-browser
 - HTML `<script>`
 
     ```html
+    <script src="your-buffer-polyfill-that-set-globalThis-Buffer"></script>
     <script src="./node_modules/memfs-browser/dist/memfs.min.js"></script>
     <script src="./index.js"></script>
     ```
@@ -33,6 +34,7 @@ npm install memfs-browser
     <script type="importmap">
       {
         "imports": {
+          "buffer": "https://esm.sh/buffer",
           "memfs-browser": "./node_modules/memfs-browser/dist/memfs.esm.min.js"
         }
       }
@@ -49,6 +51,20 @@ npm install memfs-browser
     ```
 
 - Webpack
+
+    ```bash
+    npm install buffer
+    ```
+
+    ```js
+    module.exports = {
+      resolve: {
+        alias: {
+          buffer: require.resolve('buffer/')
+        }
+      }
+    }
+    ```
 
     ```js
     import * as memfs from 'memfs-browser'

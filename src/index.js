@@ -11,7 +11,6 @@ exports.versions = {
 };
 
 exports.path = require('path')
-exports.Buffer = require('buffer').Buffer
 
 module.exports = Object.assign({}, exports, memfs.fs);
 module.exports.semantic = memfs.semantic;

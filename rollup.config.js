@@ -11,6 +11,7 @@ function defineConfig (mode, entryName) {
   /** @type {import('rollup').RollupOptions} */
   const config = {
     input: path.join(__dirname, './src/index.rollup.js'),
+    external: ['buffer'],
     plugins: [
       replace({
         preventAssignment: true,
@@ -27,7 +28,7 @@ function defineConfig (mode, entryName) {
           process: require.resolve('process/browser'),
           assert: path.join(__dirname, './src/assert.js'),
           url: path.join(__dirname, './src/url.js'),
-          buffer: require.resolve('buffer/'),
+          // buffer: path.join(__dirname, './src/buffer.js'),
           util: require.resolve('util/'),
           path: require.resolve('path-browserify'),
           stream: require.resolve('readable-stream'),
@@ -41,7 +42,7 @@ function defineConfig (mode, entryName) {
       commonjs(),
       inject({
         process: require.resolve('process/browser'),
-        Buffer: [require.resolve('buffer/'), 'Buffer']
+        Buffer: ['buffer', 'Buffer']
       }),
       ...(mode === 'production' ? [
         terser({
