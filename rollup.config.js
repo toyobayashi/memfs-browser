@@ -27,19 +27,21 @@ function defineConfig (mode, entryName) {
           process: require.resolve('process/browser'),
           assert: path.join(__dirname, './src/assert.js'),
           url: path.join(__dirname, './src/url.js'),
-          // buffer: require.resolve('buffer/'),
-          // util: require.resolve('util/'),
+          buffer: require.resolve('buffer/'),
+          util: require.resolve('util/'),
           path: require.resolve('path-browserify'),
-          stream: require.resolve('stream-browserify'),
+          stream: require.resolve('readable-stream'),
+          events: require.resolve('events/'),
           // events: require.resolve('events/'),
           // punycode: require.resolve('punycode/'),
           // querystring: require.resolve('querystring/'),
-          // string_decoder: require.resolve('string_decoder/'),
+          string_decoder: require.resolve('string_decoder/'),
         }
       }),
       commonjs(),
       inject({
-        process: require.resolve('process/browser')
+        process: require.resolve('process/browser'),
+        Buffer: [require.resolve('buffer/'), 'Buffer']
       }),
       ...(mode === 'production' ? [
         terser({

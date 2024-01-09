@@ -43,9 +43,6 @@ npm install memfs-browser
     ```js
     import * as memfs from 'memfs-browser'
 
-    // `fs.*` are not exported
-    // memfs is { Volume, createFsFromVolume, fs, versions, vol }
-
     console.log(memfs.versions.memfs) // original memfs version
     console.log(memfs.versions.build) // version of current build
     console.log(memfs.path) // path-browserify

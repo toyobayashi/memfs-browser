@@ -1,5 +1,8 @@
-import { fs, vol, path } from 'memfs-browser';
-console.log(path)
+import * as memfs from 'memfs-browser';
+
+console.log(memfs)
+
+const { fs, vol } = memfs
 
 const { readFileSync, writeFileSync } = fs
 

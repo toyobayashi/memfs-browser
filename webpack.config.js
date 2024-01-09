@@ -28,7 +28,7 @@ function defineConfig (mode, entryName) {
         buffer: require.resolve('buffer/'),
         util: require.resolve('util/'),
         path: require.resolve('path-browserify'),
-        stream: require.resolve('stream-browserify'),
+        stream: require.resolve('readable-stream'),
         events: require.resolve('events/'),
         // punycode: require.resolve('punycode/'),
         // querystring: require.resolve('querystring/'),
@@ -42,7 +42,8 @@ function defineConfig (mode, entryName) {
         '__MEMFS_BROWSER_ORIGINAL_VERSION__': JSON.stringify(require('./package.json').dependencies.memfs)
       }),
       new webpack.ProvidePlugin({
-        process: require.resolve('process/browser')
+        process: require.resolve('process/browser'),
+        Buffer: [require.resolve('buffer/'), 'Buffer']
       })
     ],
     optimization: {
