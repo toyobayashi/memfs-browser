@@ -4,6 +4,17 @@
 
 The code shipped in this package is not transpiled by babel.
 
+Version explanation
+
+```
+memfs: major.minor.patch  -->  memfs-browser: major.minor.1{patch:2}{build:2}
+
+example:
+
+3.5.3  -->  3.5.103xx
+4.6.0  -->  4.6.100xx
+```
+
 ## Usage
 
 ```bash
