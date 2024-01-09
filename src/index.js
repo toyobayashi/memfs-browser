@@ -4,6 +4,7 @@ exports.Volume = memfs.Volume;
 exports.vol = memfs.vol;
 exports.createFsFromVolume = memfs.createFsFromVolume;
 exports.fs = memfs.fs;
+exports.memfs = memfs.memfs;
 
 exports.versions = {
   memfs: __MEMFS_BROWSER_ORIGINAL_VERSION__,
@@ -13,5 +14,5 @@ exports.versions = {
 exports.path = require('path')
 exports.Buffer = require('buffer').Buffer
 
-module.exports = Object.assign({}, exports, memfs.fs);
+module.exports = Object.assign(Object.assign({}, module.exports), exports.fs);
 module.exports.semantic = memfs.semantic;
