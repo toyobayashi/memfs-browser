@@ -11,7 +11,7 @@ function defineConfig (mode, entryName) {
   /** @type {import('rollup').RollupOptions} */
   const config = {
     input: path.join(__dirname, './src/index.rollup.js'),
-    external: ['buffer'],
+    // external: ['buffer'],
     plugins: [
       replace({
         preventAssignment: true,
@@ -25,10 +25,10 @@ function defineConfig (mode, entryName) {
       }),
       alias({
         entries: {
-          process: require.resolve('process/browser'),
+          process: require.resolve('process'),
           assert: path.join(__dirname, './src/assert.js'),
           url: path.join(__dirname, './src/url.js'),
-          // buffer: path.join(__dirname, './src/buffer.js'),
+          buffer: path.join(__dirname, './src/buffer-rollup.js'),
           util: require.resolve('util/'),
           path: require.resolve('path-browserify'),
           stream: require.resolve('readable-stream'),
@@ -41,9 +41,15 @@ function defineConfig (mode, entryName) {
       }),
       commonjs(),
       inject({
-        process: require.resolve('process/browser'),
-        Buffer: ['buffer', 'Buffer']
+        process: require.resolve('process'),
+        // Buffer: ['buffer', 'Buffer']
       }),
+      {
+        name: 'buffer',
+        renderChunk (code) {
+          return code.replace(/__MEMFS_REQUIRE_BUFFER_REPLACE__/g, 'require("buffer").Buffer')
+        }
+      },
       ...(mode === 'production' ? [
         terser({
           module: true,
