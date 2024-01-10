@@ -45,11 +45,11 @@ npm install memfs-browser
     <script type="importmap">
       {
         "imports": {
-          "buffer": "https://esm.sh/buffer",
           "memfs-browser": "./node_modules/memfs-browser/dist/memfs.esm.min.js"
         }
       }
     </script>
+    <script src="your-buffer-polyfill-that-set-globalThis-Buffer"></script>
     <script type="module" src="./index.js"></script>
     ```
 
